@@ -36,7 +36,7 @@ public class BeanHelper {
      * @throws IllegalAccessException 不能实例化异常
      * @throws InstantiationException 安全权限异常
      */
-    public static <T> List<T> copyProperties(List<Object> source, Class<T> clazz) throws IllegalAccessException, InstantiationException {
+    public static <T> List<T> copyProperties(List<?> source, Class<T> clazz) throws IllegalAccessException, InstantiationException {
         List<T> result = new ArrayList<>(source.size());
         for (Object object : source) {
             T entity = copyProperties(object, clazz);
@@ -54,7 +54,7 @@ public class BeanHelper {
      * @throws InstantiationException 不能实例化异常
      * @throws IllegalAccessException 安全权限异常
      */
-    public static  <T> PageInfo<T> toPageInfo(List<Object> result, Class<T> clazz) throws InstantiationException, IllegalAccessException {
+    public static  <T> PageInfo<T> toPageInfo(List<?> result, Class<T> clazz) throws InstantiationException, IllegalAccessException {
         List<T> resultPageInfo = copyProperties(result, clazz);
         return new PageInfo<>(resultPageInfo);
     }
