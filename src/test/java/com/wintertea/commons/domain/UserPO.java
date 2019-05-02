@@ -6,4 +6,5 @@ import lombok.Data;
 public class UserPO {
     private String name;
     private String pass;
+    private String address;
 }
